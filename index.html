@@ -26,7 +26,7 @@
 
   body {
     background: linear-gradient(to bottom, #87CEEB 0%, #B0E0FF 40%, #4CAF50 40%, #3d8b3d 100%);
-    background-attachment: fixed;
+    background-attachment: scroll;
     min-height: 100vh;
     font-family: 'Nunito', sans-serif;
     display: flex;
@@ -824,6 +824,10 @@ function selectAnswer(selected) {
   document.getElementById('explanation').classList.add('show');
   document.getElementById('next-btn').style.display = 'block';
   document.getElementById('next-btn').textContent = current < questions.length - 1 ? 'Next Question →' : 'See Results 🍩';
+
+  setTimeout(() => {
+    document.getElementById('next-btn').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }, 150);
 }
 
 function nextQuestion() {
